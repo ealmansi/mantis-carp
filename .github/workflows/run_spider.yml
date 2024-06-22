@@ -1,0 +1,29 @@
+on:
+  workflow_call:
+    inputs:
+      spider:
+        type: string
+        required: true
+
+permissions:
+  id-token: write
+
+env:
+  AWS_ROLE: arn:aws:iam::131164827647:role/GitHubActionsMantisCarpRole
+  AWS_REGION: us-east-1
+
+jobs:
+  run_spider:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+      - run: pip install pipenv
+      - run: pipenv install
+      - run: pipenv run scrapy crawl ${{ inputs.spider }} --set DYNAMO_DB_PIPELINE_ENABLED=true
