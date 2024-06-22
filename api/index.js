@@ -22,17 +22,23 @@ function renderHomePage(events) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Mantis</title>
       <style>
-        html, body {
+        html {
           width: 100%;
-          margin: 0px;
+          margin: 5px 0px;
           padding: 0px;
           font-family: sans-serif;
         }
 
+        body {
+          width: 100%;
+          margin: 0px;
+          padding: 0px;
+        }
+
         ul {
-          width: min(380px, 100% - 20px);
-          margin: 0px 0px 20px 0px;
-          padding: 10px;
+          width: min(380px, 100% - 10px);
+          margin: 0px;
+          padding: 0px 5px;
           list-style-type: none;
         }
 
@@ -43,12 +49,11 @@ function renderHomePage(events) {
         }
 
         .event-card {
-            border: 1px solid #ccc;
             border-radius: 4px;
             overflow: hidden;
             width: 100%;
             margin: 0;
-            padding: 0
+            padding: 0;
             text-decoration: none;
             color: inherit;
         }
@@ -127,33 +132,29 @@ function renderEvent(event) {
   return `
     <li id="${event.id}">
       <div class="event-card">
-          <a href="${event.url}" class="event-link">
-              <div class="event-image">
-                  <a href="${event.url}" target="_blank" rel="noreferrer">
-                    <img src="${event.image}" alt="${event.name}">
-                  </a>
-              </div>
-              <div class="event-details">
-                  <div class="event-organizer">
-                      <p><a href="${
-                        event.organizer_url
-                      }" target="_blank" rel="noreferrer">${
-                        event.organizer_name
-                      }</a></p>
-                  </div>
-                  <p class="event-date">${weekday} ${time}, ${date} •  <a href="${location_link}" target="_blank" rel="noreferrer">${
-                    event.location_name
-                  }</a></p>
-                  <h3 class="event-name">${event.name}</h3>
-                  <p class="event-description">
-                    ${
-                      event.description.length > 300
-                        ? event.description.slice(0, 296) + " ..."
-                        : event.description
-                    }
-                  </p>
-              </div>
+        <div class="event-image">
+          <a href="${event.url}" target="_blank" rel="noreferrer">
+            <img src="${event.image}" alt="${event.name}">
           </a>
+        </div>
+        <div class="event-details">
+          <div class="event-organizer">
+            <p><a href="${
+              event.organizer_url
+            }" target="_blank" rel="noreferrer">${event.organizer_name}</a></p>
+          </div>
+          <p class="event-date">${weekday} ${time}, ${date} • <a href="${location_link}" target="_blank" rel="noreferrer">${
+            event.location_name
+          }</a></p>
+          <h3 class="event-name">${event.name}</h3>
+          <p class="event-description">
+            ${
+              event.description.length > 300
+                ? event.description.slice(0, 296) + " ..."
+                : event.description
+            }
+          </p>
+        </div>
       </div>
     </li>
   `;
