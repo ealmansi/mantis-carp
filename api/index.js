@@ -39,7 +39,7 @@ function renderHomePage(events) {
             border: 1px solid #ccc;
             border-radius: 4px;
             overflow: hidden;
-            max-width: 300px;
+            width: min(380px, 100% - 20px);
             margin: 10px;
             text-decoration: none;
             color: inherit;
