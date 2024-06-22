@@ -30,17 +30,25 @@ function renderHomePage(events) {
         }
 
         ul {
+          width: min(380px, 100% - 20px);
+          margin: 0px 0px 20px 0px;
+          padding: 10px;
           list-style-type: none;
-          margin: 0;
-          padding: 0;
+        }
+
+        li {
+          width: 100%;
+          margin: 0px 0px 30px 0px;
+          padding: 0px;
         }
 
         .event-card {
             border: 1px solid #ccc;
             border-radius: 4px;
             overflow: hidden;
-            width: min(380px, 100% - 20px);
-            margin: 10px;
+            width: 100%;
+            margin: 0;
+            padding: 0
             text-decoration: none;
             color: inherit;
         }
