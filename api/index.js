@@ -36,7 +36,7 @@ function renderHomePage(events) {
         }
 
         ul {
-          width: min(380px, 100% - 10px);
+          width: min(400px, 100% - 10px);
           margin: 0px;
           padding: 0px 5px;
           list-style-type: none;
