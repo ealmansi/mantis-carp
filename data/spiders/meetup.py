@@ -9,15 +9,17 @@ class MeetupSpider(scrapy.Spider):
     name = "meetup"
     allowed_domains = ["meetup.com"]
     start_urls = [
-        "https://www.meetup.com/de-DE/meetup-group-yhythqmx/",
-        "https://www.meetup.com/de-DE/friendly-mixed-gender-football/",
-        "https://www.meetup.com/de-DE/terrible-football-berlin/",
-        "https://www.meetup.com/de-DE/berlin-running/",
-        "https://www.meetup.com/de-DE/flinta-running/",
-        "https://www.meetup.com/de-DE/mixed-lazy-and-lousy-football/",
         "https://www.meetup.com/de-DE/amateur-football-berlin/",
         "https://www.meetup.com/de-DE/berlin-football/",
+        "https://www.meetup.com/de-DE/berlin-running/",
+        "https://www.meetup.com/de-DE/flinta-running/",
+        "https://www.meetup.com/de-DE/founders-running-club-berlin/",
+        "https://www.meetup.com/de-DE/friendly-mixed-gender-football/",
         "https://www.meetup.com/de-DE/lazy-football-on-the-grass/",
+        "https://www.meetup.com/de-DE/meetup-group-yhythqmx/",
+        "https://www.meetup.com/de-DE/mixed-lazy-and-lousy-football/",
+        "https://www.meetup.com/de-DE/terrible-football-berlin/",
+        "https://www.meetup.com/de-DE/tvirta-slow-run",
     ]
 
     def parse(self, response):
