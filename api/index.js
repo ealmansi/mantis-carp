@@ -4,7 +4,7 @@ const parseISO = require("date-fns/parseISO");
 const compareAsc = require("date-fns/compareAsc");
 const format = require("date-fns/format");
 const isBefore = require("date-fns/isBefore");
-const startOfDay = require("date-fns/startOfDay");
+const subHours = require("date-fns/subHours");
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 const {
   DynamoDBDocumentClient,
@@ -193,7 +193,7 @@ function compareEvents(event1, event2) {
 
 function isUpcoming(event) {
   const date = parseISO(event.start_date);
-  return !isBefore(date, startOfDay(new Date()));
+  return !isBefore(date, subHours(new Date(), 2));
 }
 
 /**
