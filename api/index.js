@@ -143,7 +143,7 @@ function renderEvent(event) {
               event.organizer_url
             }" target="_blank" rel="noreferrer">${event.organizer_name}</a></p>
           </div>
-          <p class="event-date">${weekday} ${time}, ${date} • <a href="${location_link}" target="_blank" rel="noreferrer">${
+          <p class="event-date">${date} • ${weekday} ${time} • <a href="${location_link}" target="_blank" rel="noreferrer">${
             event.location_name
           }</a></p>
           <h3 class="event-name">${event.name}</h3>
